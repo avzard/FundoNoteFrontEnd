@@ -11,7 +11,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { LoginComponent } from './components/login/login.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { ForgotEmailComponent } from './components/forgot-email/forgot-email.component';
+import{ ForgotEmailComponent} from'./components/forgot-email/forgot-email.component';
+import {FormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 @NgModule({
   declarations: [
@@ -20,6 +24,7 @@ import { ForgotEmailComponent } from './components/forgot-email/forgot-email.com
     LoginComponent,
     ForgotPasswordComponent,
     ForgotEmailComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -29,8 +34,10 @@ import { ForgotEmailComponent } from './components/forgot-email/forgot-email.com
     MatCheckboxModule,
     MatInputModule,
     MatButtonModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
+    
     
   ],
   providers: [],

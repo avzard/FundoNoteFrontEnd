@@ -1,6 +1,6 @@
 <div class="main">
     <div class="form">
-        <form class="" action="">
+        <form [formGroup]="Forgotemail">
             <div class="Head">
                 <div class="FundoNote-Logo" style="font-size: x-large;">
                     <span style="color: #4285f4;">F</span>
@@ -14,18 +14,18 @@
                     <span style="color: #34a853;">e</span>
                 </div>
                 <div style="text-align:center; ;">
-                    <h1>Find your email</h1>
-                    <h3>Enter your recovery email</h3>
+                    <h1>Reset Password</h1>
+                    <h3>Enter a new Password</h3>
                 </div>
             </div>
             <div class="gmail-container">
-                <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-form-field appearance="outline" style="width: 85%;">
                     <mat-label>Email</mat-label>
-                    <input matInput placeholder="@gmail.com" required>
+                    <input matInput placeholder="@gmail.com" formControlName="email">
                 </mat-form-field>
             </div>
-            <button class="Button2">Next</button>
+            <button class="Button2" (click)="onSubmit()" >Next</button>
         </form>
     </div>
-
-</div>
+  
+  </div>

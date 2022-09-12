@@ -1,6 +1,6 @@
 <div class="main">
     <div class="form">
-        <form class="" action="">
+        <form >
             <div class="Head">
                 <div class="FundoNote-Logo" style="font-size: x-large;" >
                     <span style="color: #4285f4;">F</span>
@@ -20,19 +20,19 @@
             <div class="gmail-container">
                 <mat-form-field appearance="outline" style="width: 85%;">
                     <mat-label>Email</mat-label>
-                    <input matInput placeholder="@gmail.com" required>
+                    <input matInput placeholder="@gmail.com" formControlName="email">
                 </mat-form-field>
             </div>
             <div class="Password">
                 <p>
                     <mat-form-field appearance="outline" style="width: 85%;">
                         <mat-label>Password</mat-label>
-                        <input matInput placeholder="Password" required>
+                        <input matInput placeholder="Password" formControlName="password">
                     </mat-form-field>
                 </p>
             </div>
             <button class="ForgotPassword">Forgot Password</button>
-            <button class="Login">Login</button>
+            <button class="Login" (click)="onSubmit()">Login</button>
         </form>
     </div>
 </div>

@@ -69,9 +69,7 @@
     border: 5px solid rgb(255, 255, 255);
     font-size: 15px;
     font-family: "Google Sans", "Noto Sans Myanmar UI", arial, sans-serif;
-    margin-left: 1px;
-    width: 800px;
-
+   
 
 }
 .Button{
@@ -83,6 +81,8 @@
 
 .Check-ShowPass {
     display: flex;
+    column-gap: 38%;
+    padding-top: 0%;
     position: absolute;
 }
 

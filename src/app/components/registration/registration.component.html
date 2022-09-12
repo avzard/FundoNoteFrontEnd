@@ -1,6 +1,6 @@
 <div class="main">
   <div class="form">
-    <form class="" action="">
+    <form [formGroup]="registerForm">
       <div class="Head">
         <div class="FundoNote-Logo" style="font-size: x-large;">
           <span style="color: #4285f4;">F</span>
@@ -57,11 +57,11 @@
 
       </div>
       <div class="Check-ShowPass">
-        <mat-checkbox class="example-margin">Show Password</mat-checkbox>
+        <mat-checkbox >Show Password </mat-checkbox>
       </div>
       <div class="Button">
-        <button >Sign in insted</button>
-        <button class="NextButton" >Next</button>
+        <button class="Button3" >Sign in insted</button>
+        <button class="Button2" (click)="onSubmit()" >Next</button>
         
       </div>
 

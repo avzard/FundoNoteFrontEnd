@@ -8,7 +8,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 const routes: Routes = [
   {path:'registration',component:RegistrationComponent},
   {path:'login',component:LoginComponent},
-  {path:'forgot-password',component:ForgotPasswordComponent},
+  {path:'User/ResetPassword/:token',component:ForgotPasswordComponent},
   {path:'forgot-email',component:ForgotEmailComponent},
 ];
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserserviceService } from 'src/app/services/userservice/userservice.service';
+
 
 @Component({
   selector: 'app-registration',
@@ -9,14 +11,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegistrationComponent implements OnInit {
   registerForm!: FormGroup;
   submitted = false;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,private user:UserserviceService) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
         
         firstName: ['', Validators.required],
-        lastName: ['', Validators.required],
-        
+        lastName: ['', Validators.required],       
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(6)]],
         confirmPassword: ['', Validators.required],
@@ -29,9 +30,20 @@ export class RegistrationComponent implements OnInit {
     this.submitted = true;
 
     // stop here if form is invalid
-    if (this.registerForm.invalid) {
-      return;
+    if (this.registerForm.valid) {
+      let reqdata={
+        FirstName: this.registerForm.value.firstName,
+        LastName: this.registerForm.value.lastName,
+        Email: this.registerForm.value.email,
+        Password: this.registerForm.value.password,
+        service:this.registerForm.value.service,
+      }
+      this.user.registration(reqdata).subscribe((response: any) =>{
+        console.log(response);
+      }
+      ) 
     }
+    
   }
   onReset() {
     this.submitted = false;
