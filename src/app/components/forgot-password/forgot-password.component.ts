@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserserviceService } from 'src/app/services/userservice/userservice.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-forgot-password',
@@ -10,7 +11,8 @@ import { UserserviceService } from 'src/app/services/userservice/userservice.ser
 export class ForgotPasswordComponent implements OnInit {
   Forgotpassword!: FormGroup;
   submitted = false;
-  constructor(private formBuilder: FormBuilder, private user: UserserviceService) { }
+  token : any;
+  constructor(private formBuilder: FormBuilder, private user: UserserviceService,private route :ActivatedRoute) { }
 
   ngOnInit() {
     this.Forgotpassword = this.formBuilder.group({
@@ -20,10 +22,12 @@ export class ForgotPasswordComponent implements OnInit {
       confirmPassword: ['', Validators.required],
 
     });
-
+    this.token = this.route.snapshot.paramMap.get('token');
+    
   }
   get f() { return this.Forgotpassword.controls; }
 onSubmit() {
+  console.log(this.token);
   this.submitted = true;
 
   // stop here if form is invalid
@@ -31,10 +35,10 @@ onSubmit() {
     let reqdata={
       
       
-      password: this.Forgotpassword.value.password,
-      newPassword: this.Forgotpassword.value.confirmPassword,
+      Password: this.Forgotpassword.value.password,
+      confirmPassword: this.Forgotpassword.value.password
     }
-    this.user.forgotpassword(reqdata).subscribe((response: any) =>{
+    this.user.forgotpassword(reqdata,this.token).subscribe((response: any) =>{
       console.log(response);
     }
     ) 

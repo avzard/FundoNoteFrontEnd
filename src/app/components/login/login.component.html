@@ -1,6 +1,6 @@
 <div class="main">
     <div class="form">
-        <form >
+        <form [formGroup]="LoginForm" >
             <div class="Head">
                 <div class="FundoNote-Logo" style="font-size: x-large;" >
                     <span style="color: #4285f4;">F</span>
@@ -32,7 +32,7 @@
                 </p>
             </div>
             <button class="ForgotPassword">Forgot Password</button>
-            <button class="Login" (click)="onSubmit()">Login</button>
+            <button class="Login" (click)="onSubmit()" >Login</button>
         </form>
     </div>
 </div>

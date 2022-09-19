@@ -14,16 +14,29 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import{ ForgotEmailComponent} from'./components/forgot-email/forgot-email.component';
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
-
-
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import { GetAllNotesComponent } from './components/get-all-notes/get-all-notes.component';
+import { CreateNoteComponent } from './components/create-note/create-note.component';
+import { DisplayComponent } from './components/display/display.component';
+import {MatCardModule} from '@angular/material/card';
+import { IconComponent } from './components/icon/icon.component';
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    ForgotEmailComponent
+    ForgotEmailComponent,
+    DashboardComponent,
+    GetAllNotesComponent,
+    CreateNoteComponent,
+    DisplayComponent,
+    IconComponent
     
   ],
   imports: [
@@ -36,9 +49,13 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
-    
-    
+    HttpClientModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
+    FlexLayoutModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

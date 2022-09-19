@@ -1,0 +1,23 @@
+<!-- <div fxLayoutGap="row"  >
+    <div *ngFor="let note of notelist">
+        <mat-card class="notes" >
+            <div class="Title">
+                <span>{{note.title}}</span>
+                <a mat-list-item>
+                    <button class="pinbutton" mat-flat-button><img src="../../../assets/icons/download.svg" width="24px"
+                            height="24px"></button>
+                </a>
+            </div>
+            <div>
+                <span>{{note.description}}</span>
+            </div>
+            <div >
+                <app-icon></app-icon>
+            </div>
+        </mat-card>
+    </div>
+</div> -->
+<div *ngFor="let note of notelist" >
+    <span>{{note.title}}</span>
+    <tr>{{note.description}}</tr>
+</div>

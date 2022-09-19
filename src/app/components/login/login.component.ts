@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserserviceService } from 'src/app/services/userservice/userservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { UserserviceService } from 'src/app/services/userservice/userservice.ser
 export class LoginComponent implements OnInit {
   LoginForm!: FormGroup;
   submitted = false;
-  constructor(private formBuilder: FormBuilder,private user:UserserviceService) { }
+  constructor(private formBuilder: FormBuilder,private user:UserserviceService, private router:Router) { }
 
   ngOnInit() {
     this.LoginForm = this.formBuilder.group({
@@ -35,6 +36,8 @@ onSubmit() {
     }
     this.user.login(reqdata).subscribe((response: any) =>{
       console.log(response);
+      localStorage.setItem("token",response.data)
+      this.router.navigateByUrl("dashboard/note");
     }
     ) 
   }
