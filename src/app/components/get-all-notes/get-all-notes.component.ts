@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input   } from '@angular/core';
 
 import { NotesServiceService } from 'src/app/services/notesService/notes-service.service';
 @Component({
@@ -17,7 +17,7 @@ export class GetAllNotesComponent implements OnInit {
   getnotes() {
     this.note.getallnote().subscribe((response: any) => {
       console.log(response);
-      this.notelist = response.data.data
+      this.notelist = response.data
       console.log(this.notelist);
     })
 

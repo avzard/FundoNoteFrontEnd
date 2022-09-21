@@ -1,33 +1,35 @@
-<div  fxLayout="row">
-    <div class="Limages" mat-flat-button>
+<div class="icons" fxLayout="row">
+        <div fxLayout="row">
+                <img class="icon" src="../../../assets/icons/alert.svg">
+                <img class="icon" src="../../../assets/icons/personAdd.svg">
+                <div >
+                        <img class="icon" src="../../../assets/icons/pallete.svg">
+                        <mat-menu #color="matMenu">
+                                <div fxLayout="row wrap" style="padding-left: 8px;">
+                                        <div class="colorBox">
+                                                <button class="colors" mat-icon-button mat-raised-button></button>
+                                        </div>
+                                </div>
+                        </mat-menu>
+                </div>
+
+                <img class="icon" src="../../../assets/icons/album.svg">
+                <div>
+                        <img class="icon" src="../../../assets/icons/archive.svg">
+                </div>           
+                <div [matMenuTriggerFor]="menu">
+                        <div>
+                                <img class="icon" style="height: 20px;" src="../../../assets/icons/more.svg">
+                        </div>
+                        <mat-menu #menu="matMenu">
+                                <button mat-menu-item (click)="Trash()">Delete note</button>
+                                <button mat-menu-item>Add drawing</button>
+                                <button mat-menu-item>Make a copy</button>
+                                <button mat-menu-item>Show checkboxes</button>
+                                <button mat-menu-item>Copy to google Docs</button>
+                        </mat-menu>
+                </div>
+        </div>
         
-            <img src="../../../assets/icons/alert.svg" width="18px" height="18px">
-       
-    </div>
-    <div class="Limages" mat-flat-button>
-        
-            <img src="../../../assets/icons/personAdd.svg" width="18px" height="18px">
-        
-    </div>
-    <div class="Limages" mat-flat-button>
-       
-            <img src="../../../assets/icons/pallete.svg" width="18px" height="18px">
-        
-    </div >
-    <div class="Limages" mat-flat-button>
-        
-            <img src="../../../assets/icons/album.svg" width="18px" height="18px">
-       
-    </div>
-    <div class="Limages" mat-flat-button>
-        
-            <img src="../../../assets/icons/archive.svg" width="18px" height="18px">
-       
-    </div>
-    <div class="Limages" mat-flat-button>
-        
-            <img src="../../../assets/icons/more.svg" width="18px" height="18px">
-        
-    </div>
-    
+
 </div>

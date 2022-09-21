@@ -32,4 +32,42 @@ export class NotesServiceService {
     }
     return this.httpService.getService('/Notes/Read',true,header)
    }
+  //  updateNote(reqdata: any, noteId: any) {
+
+  //   console.log("token", this.token)
+  
+  //   let header = {
+  //     headers: new HttpHeaders({
+  //       'Content-Type': 'application/json',
+  //       'Authorization': 'Bearer ' + this.token
+  //     })
+  //   }
+  //   return this.httpService.putService(`/Notes/Update?noteId=${reqdata.noteId}`, reqdata, true, header)
+  // }
+   updateNote(reqdata: any,notesID:any) {
+   console.log(reqdata.notesID)
+     console.log("token", this.token)
+  
+     let header = {
+       headers: new HttpHeaders({
+         'Content-Type': 'application/json',
+         'Authorization': 'Bearer ' + this.token
+       })
+     }
+     return this.httpService.putService(`/Notes/Update?noteId=${reqdata.notesID}`, reqdata, true, header)
+   }
+  deleteNote( noteid: any) {
+    console.log(noteid)
+    console.log("token", this.token)
+  
+    let header = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.token
+      })
+    }
+    
+    return this.httpService.deleteService(`/Notes/Delete?noteid=${noteid}`,true, header)
+  }
+  
 }

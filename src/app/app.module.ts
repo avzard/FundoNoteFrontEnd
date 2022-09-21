@@ -25,6 +25,12 @@ import { CreateNoteComponent } from './components/create-note/create-note.compon
 import { DisplayComponent } from './components/display/display.component';
 import {MatCardModule} from '@angular/material/card';
 import { IconComponent } from './components/icon/icon.component';
+import {MatMenuModule} from '@angular/material/menu';
+import { TrashComponent } from './components/trash/trash.component';
+import { UpdateComponent } from './components/update/update.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AuthGuard } from './auth/auth.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,9 +42,13 @@ import { IconComponent } from './components/icon/icon.component';
     GetAllNotesComponent,
     CreateNoteComponent,
     DisplayComponent,
-    IconComponent
+    IconComponent,
+    TrashComponent,
+    UpdateComponent,
+
     
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -55,9 +65,13 @@ import { IconComponent } from './components/icon/icon.component';
     MatIconModule,
     MatListModule,
     FlexLayoutModule,
-    MatCardModule
+    MatCardModule,
+    MatMenuModule,
+    MatDialogModule,
+    
+
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

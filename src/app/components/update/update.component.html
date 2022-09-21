@@ -1,0 +1,12 @@
+<div class="note" >
+
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+       <input class="mat-title" placeholder="Title" matInput mat-dialog-title [(ngModel)]="title">
+    </div>
+ 
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+       <input class="mat-title" placeholder="Description" matInput mat-dialog-title [(ngModel)]="description">
+    </div>
+    <app-icon style="margin-top: 30px;" [notedata]="reqdata" ></app-icon>
+    <button class="button" (click)="onNoClick()">close</button>
+ </div>

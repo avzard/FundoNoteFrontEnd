@@ -1,23 +1,16 @@
-<!-- <div fxLayoutGap="row"  >
-    <div *ngFor="let note of notelist">
-        <mat-card class="notes" >
+<div class="display ">
+    <div  *ngFor="let note of Notesarray ">
+        <mat-card class="notes">
             <div class="Title">
-                <span>{{note.title}}</span>
-                <a mat-list-item>
-                    <button class="pinbutton" mat-flat-button><img src="../../../assets/icons/download.svg" width="24px"
-                            height="24px"></button>
-                </a>
+                <p (click)="openDialog(note)">{{note.title}}</p>
+                <p (click)="openDialog(note)">{{note.description}}</p>
             </div>
             <div>
-                <span>{{note.description}}</span>
+                <app-icon class="icons" [notedata]="note"></app-icon>
             </div>
-            <div >
-                <app-icon></app-icon>
+            <div>
+                {{note.notesID}}
             </div>
         </mat-card>
     </div>
-</div> -->
-<div *ngFor="let note of notelist" >
-    <span>{{note.title}}</span>
-    <tr>{{note.description}}</tr>
 </div>

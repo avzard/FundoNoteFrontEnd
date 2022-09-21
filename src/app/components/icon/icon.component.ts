@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { NotesServiceService } from 'src/app/services/notesService/notes-service.service';
 @Component({
   selector: 'app-icon',
   templateUrl: './icon.component.html',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IconComponent implements OnInit {
 
-  constructor() { }
+  @Input() notedata: any;
+
+  constructor(private note: NotesServiceService) { }
 
   ngOnInit(): void {
+    console.log(this.notedata.noteID)
+
   }
+  Trash() {
+    console.log(this.notedata.notesID)
+    
+    this.note.deleteNote(this.notedata.notesID).subscribe((response: any) => {
+      console.log("trash response=", response);
+
+    },
+    )
+  }
+  
 
 }
+
