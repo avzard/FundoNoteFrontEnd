@@ -1,5 +1,5 @@
 import { Token } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component,EventEmitter, OnInit,Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NotesServiceService } from 'src/app/services/notesService/notes-service.service';
 @Component({
@@ -12,7 +12,7 @@ export class CreateNoteComponent implements OnInit {
   isShow = false
   Title: any
   Description: any
-
+  @Output() messageEvent = new EventEmitter<string>();
   constructor(private formBuilder: FormBuilder, private note: NotesServiceService) { }
 
   ngOnInit(): void {
@@ -40,6 +40,7 @@ export class CreateNoteComponent implements OnInit {
     }
     this.note.addnote(reqdata).subscribe((response: any) => {
       console.log(response);
+      this.messageEvent.emit("hello")
     })
   }
 }

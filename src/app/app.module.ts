@@ -30,6 +30,7 @@ import { TrashComponent } from './components/trash/trash.component';
 import { UpdateComponent } from './components/update/update.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AuthGuard } from './auth/auth.guard';
+import { ArchiveComponent } from './components/archive/archive.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { AuthGuard } from './auth/auth.guard';
     IconComponent,
     TrashComponent,
     UpdateComponent,
+    ArchiveComponent,
 
     
   ],

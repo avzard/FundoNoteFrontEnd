@@ -7,18 +7,24 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { GetAllNotesComponent } from './components/get-all-notes/get-all-notes.component';
-import { CreateNoteComponent } from './components/create-note/create-note.component';
+import { TrashComponent } from './components/trash/trash.component';
+import { ArchiveComponent } from './components/archive/archive.component';
 import { AuthGuard } from './auth/auth.guard';
 const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'User/ResetPassword/:token', component: ForgotPasswordComponent },
   { path: 'forgot-email', component: ForgotEmailComponent },
-  { path: 'dashboard', canActivate:[AuthGuard] ,component: DashboardComponent,
-    children:[{ path: 'note', component:GetAllNotesComponent},]},
-  
+  {
+    path: 'dashboard', canActivate: [AuthGuard], component: DashboardComponent,
+    children: [
+      { path: 'note', component: GetAllNotesComponent },
+      { path: 'trash', component: TrashComponent },
+      { path: 'archive', component: ArchiveComponent },]
+  },
+
 ];
-  
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

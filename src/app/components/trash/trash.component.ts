@@ -9,7 +9,7 @@ import { NotesServiceService } from 'src/app/services/notesService/notes-service
 })
 export class TrashComponent implements OnInit {
   noteList: any
-  
+  @Output() trashEvent = new EventEmitter<string>();
   constructor(private note: NotesServiceService) { }
 
   ngOnInit(): void {
@@ -17,8 +17,15 @@ export class TrashComponent implements OnInit {
   }
   GetAllNotes() {
     this.note.getallnote().subscribe((response: any) => {
-      console.log("trash response=", response);
+      console.log("trash response=", response.data);
+      this.noteList=response.data;
+      this.noteList.reverse();
+      this.noteList = this.noteList.filter((object:any)=>{
+        return object.trash===true
+      })
     })
   }
-
+  receiveMessage(event:any){
+    this.GetAllNotes();
+ }
 }

@@ -2,21 +2,23 @@
         <div fxLayout="row">
                 <img class="icon" src="../../../assets/icons/alert.svg">
                 <img class="icon" src="../../../assets/icons/personAdd.svg">
-                <div >
+                <div matTooltip="Background color" [matMenuTriggerFor]="color">
                         <img class="icon" src="../../../assets/icons/pallete.svg">
                         <mat-menu #color="matMenu">
                                 <div fxLayout="row wrap" style="padding-left: 8px;">
-                                        <div class="colorBox">
-                                                <button class="colors" mat-icon-button mat-raised-button></button>
+                                        <div *ngFor="let color of colorsArr" class="colorBox">
+                                                <button class="colors" mat-icon-button mat-raised-button
+                                                        [style.background]="color?.Colorcode"
+                                                        (click)="changeColor(color?.Colorcode)"></button>
                                         </div>
                                 </div>
                         </mat-menu>
                 </div>
 
                 <img class="icon" src="../../../assets/icons/album.svg">
-                <div>
+                <div (click)="Archive()">
                         <img class="icon" src="../../../assets/icons/archive.svg">
-                </div>           
+                </div>
                 <div [matMenuTriggerFor]="menu">
                         <div>
                                 <img class="icon" style="height: 20px;" src="../../../assets/icons/more.svg">
@@ -30,6 +32,6 @@
                         </mat-menu>
                 </div>
         </div>
-        
+
 
 </div>

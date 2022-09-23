@@ -12,6 +12,7 @@ export class UpdateComponent implements OnInit {
   title: any
   noteId:any
   description: any
+  @Output()  refreshEvent = new EventEmitter<string>();
   constructor(private note: NotesServiceService, public dialogRef: MatDialogRef<UpdateComponent>, @Inject(MAT_DIALOG_DATA) public reqdata: any) { }
 
   ngOnInit(): void {
@@ -33,6 +34,10 @@ export class UpdateComponent implements OnInit {
      
       this.dialogRef.close(response);
     })
+  }
+  receivedMessage(event:any){
+    this.onNoClick()
+    
   }
 }
 
